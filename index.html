@@ -210,6 +210,33 @@ body::before{display:none!important}
     height:32px!important;
 }
 
+
+/* ===== ITERACIÓN V7 · ENCABEZADO DE TABLA + HOVER DE FILAS ===== */
+
+/* Encabezado de columnas: fondo diferenciado, sin mayúsculas forzadas */
+.doc-table thead th{
+    background:#f2f6fa!important;
+    color:#153e6d!important;
+    text-transform:none!important;
+    font-size:11px!important;
+    font-weight:700!important;
+    letter-spacing:0!important;
+    border-bottom:1px solid #d5e0ea!important;
+    padding-top:11px!important;
+    padding-bottom:11px!important;
+}
+
+/* Hover suave en filas de contenido */
+.doc-table tbody tr{
+    transition:background-color .15s ease, box-shadow .15s ease;
+}
+.doc-table tbody tr:hover{
+    background:#f7faff!important;
+}
+.doc-table tbody tr:hover td{
+    background:transparent!important;
+}
+
 </style>
 </head>
 <body>
