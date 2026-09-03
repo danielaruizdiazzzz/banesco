@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Banesco · Documentos del Proceso</title>
+<style>
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;min-height:100vh;background:#f4f7fa;font-family:Arial,Helvetica,sans-serif;color:#172033}body.modal-open{overflow:hidden}button,input,textarea,select{font:inherit}button{border:0}.hidden{display:none!important}
+.appbar{position:sticky;top:0;z-index:80;height:64px;background:#fff;border-bottom:1px solid #e3e7ec}.appbar-inner{max-width:1160px;height:100%;margin:0 auto;display:flex;align-items:center;gap:14px;padding:0 12px}.brand{font-size:20px;font-weight:800;letter-spacing:-.02em;color:#173c35}.brand-mark{width:30px;height:30px;border-radius:9px;background:#e8f7f0;color:#138b61;display:flex;align-items:center;justify-content:center}.brand-mark svg{width:18px;height:18px}.crumb{font-size:12px;color:#7d8998;margin-left:4px}.app-spacer{flex:1}.top-chip{height:34px;padding:0 12px;border-radius:999px;border:1px solid #dfe5eb;background:#f9fbfc;color:#566375;font-size:12px;font-weight:600;display:flex;align-items:center;gap:7px}.top-chip svg{width:15px;height:15px}.avatar{width:32px;height:32px;border-radius:50%;background:#dfe7ec;border:1px solid #ced7df}
+.screen{display:none}.screen.active{display:block}.page{max-width:1160px;margin:0 auto;padding:26px 12px 110px}.page-header{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:18px}.page-heading{display:flex;align-items:center;gap:12px}.page-icon{width:38px;height:38px;border-radius:11px;background:#e8f7f0;color:#138b61;display:flex;align-items:center;justify-content:center}.page-icon svg{width:20px;height:20px}.eyebrow{font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#14895f;margin-bottom:5px}.page-title{margin:0;font-size:24px;line-height:1.15;color:#1a2737}.page-subtitle{margin:5px 0 0;color:#7a8797;font-size:13px}.header-actions{display:flex;align-items:center;gap:10px}.primary-btn,.secondary-btn,.ghost-btn{height:38px;border-radius:11px;padding:0 14px;display:flex;align-items:center;justify-content:center;gap:7px;font-size:12px;font-weight:600;cursor:pointer}.primary-btn{background:#14895f;color:#fff;box-shadow:0 1px 2px rgba(8,97,66,.16)}.primary-btn:hover{background:#107c55}.secondary-btn{background:#fff;color:#415064;border:1px solid #d9e0e6}.secondary-btn:hover{background:#f8fafb}.ghost-btn{background:transparent;color:#617084}.primary-btn svg,.secondary-btn svg,.ghost-btn svg{width:15px;height:15px}.icon-btn{width:32px;height:32px;border-radius:8px;background:transparent;color:#778493;display:flex;align-items:center;justify-content:center;cursor:pointer}.icon-btn:hover{background:#edf7f2;color:#138b61}.icon-btn svg{width:16px;height:16px}
+.card{background:#fff;border:1px solid #dfe5eb;border-radius:15px;box-shadow:0 2px 4px rgba(22,34,51,.05)}.section-card{overflow:hidden;margin-bottom:16px}.section-head{height:55px;padding:0 16px;background:#f7f9fb;border-bottom:1px solid #e2e7ed;display:flex;align-items:center}.section-head-title{font-size:13px;font-weight:700;color:#27364a}.section-body{padding:16px}.grid-6{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:14px}.grid-4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}.grid-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.field{min-width:0}.field-label{font-size:10px;font-weight:700;letter-spacing:.02em;text-transform:uppercase;color:#617084;margin-bottom:6px}.field-value{height:36px;border:1px solid #dfe5ec;border-radius:10px;background:#f7f9fb;display:flex;align-items:center;padding:0 11px;font-size:12px;color:#27364a;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}.field-value.muted{color:#8b96a4}.field-value.long{white-space:normal;height:58px;align-items:flex-start;padding-top:10px}.switchline{height:36px;display:flex;align-items:center;gap:8px}.fake-switch{width:34px;height:19px;background:#14895f;border-radius:999px;position:relative}.fake-switch:after{content:"";position:absolute;width:15px;height:15px;right:2px;top:2px;border-radius:50%;background:#fff;box-shadow:0 1px 3px rgba(25,37,52,.2)}
+.entity-top{position:relative}.entity-actions{position:absolute;right:0;top:0;display:flex;gap:8px}.relation-wrapper{position:relative}.relation-btn.active{background:#e9f7f1;color:#138b61}.relations-popover{position:absolute;right:0;top:40px;width:290px;background:#fff;border:1px solid #dfe5eb;border-radius:13px;box-shadow:0 14px 34px rgba(25,42,63,.16);z-index:120;display:none;overflow:hidden}.relations-popover.open{display:block}.relations-head{padding:13px 14px;border-bottom:1px solid #edf0f3}.relations-title{font-size:12px;font-weight:700;color:#2c3a4d}.relations-subtitle{font-size:10px;color:#8995a4;margin-top:3px}.relation-item{width:100%;min-height:46px;padding:0 13px;background:#fff;display:flex;align-items:center;gap:10px;text-align:left;cursor:pointer;color:#455366;border-bottom:1px solid #f0f2f5}.relation-item:last-child{border-bottom:0}.relation-item:hover{background:#f4faf7;color:#138b61}.relation-item-icon{width:28px;height:28px;border-radius:8px;background:#eef7f3;color:#138b61;display:flex;align-items:center;justify-content:center;flex-shrink:0}.relation-item-icon svg{width:14px;height:14px}.relation-item-name{font-size:11px;font-weight:650}.relation-item-meta{font-size:9px;color:#929daa;margin-top:2px}
+.table-card{background:#fff;border:1px solid #dfe5eb;border-radius:15px;overflow:hidden;box-shadow:0 2px 4px rgba(22,34,51,.05)}.table-toolbar{min-height:58px;padding:0 16px;display:flex;align-items:center;border-bottom:1px solid #e5e9ed;background:#f8fafc}.table-title{font-size:13px;font-weight:700;color:#344255}.table-meta{margin-left:8px;font-size:10px;color:#8793a2}.table-toolbar .primary-btn{margin-left:auto;height:34px}.table-wrap{overflow:auto}.doc-table{width:100%;border-collapse:collapse;min-width:960px}.doc-table th{padding:12px 14px;background:#fff;border-bottom:1px solid #e8ecf0;text-align:left;font-size:10px;letter-spacing:.03em;text-transform:uppercase;color:#667487;font-weight:700}.doc-table td{padding:13px 14px;border-bottom:1px solid #eef1f4;font-size:12px;color:#445267;vertical-align:middle}.doc-table tr:last-child td{border-bottom:0}.doc-name{font-weight:600;color:#243348}.bool{font-size:11px;font-weight:600;color:#566477}.row-actions{display:flex;align-items:center;justify-content:flex-end;gap:4px}.row-action-upload:hover{background:#eef6ff;color:#1376d1}.row-action-view:hover{background:#edf7f2;color:#138b61}.back-link{display:inline-flex;align-items:center;gap:6px;margin-bottom:12px;background:transparent;color:#667487;font-size:11px;font-weight:600;cursor:pointer}.back-link svg{width:14px;height:14px}
+.modal-backdrop{position:fixed;inset:0;z-index:200;background:rgba(20,24,30,.70);display:flex;align-items:center;justify-content:center;padding:28px;opacity:0;visibility:hidden;pointer-events:none;transition:.18s ease}.modal-backdrop.open{opacity:1;visibility:visible;pointer-events:auto}.modal{width:100%;max-width:980px;max-height:90vh;background:#f4f7fa;border:1px solid #dce2e8;border-radius:16px;box-shadow:0 22px 60px rgba(6,16,28,.28);overflow:hidden;transform:translateY(7px) scale(.995);transition:.18s ease}.modal-backdrop.open .modal{transform:translateY(0) scale(1)}.modal.compact{max-width:760px}.modal.medium{max-width:900px}.modal-head{height:64px;background:#fff;border-bottom:1px solid #e2e7ec;display:flex;align-items:center;padding:0 20px}.modal-title-wrap{display:flex;align-items:center;gap:11px}.modal-title-icon{width:34px;height:34px;border-radius:10px;background:#e9f7f1;color:#138b61;display:flex;align-items:center;justify-content:center}.modal-title-icon svg{width:18px;height:18px}.modal-title{font-size:16px;font-weight:700;color:#1d2a3b}.modal-subtitle{font-size:10px;color:#8894a2;margin-top:2px}.modal-close{margin-left:auto;width:32px;height:32px;border-radius:8px;background:transparent;color:#6c7888;display:flex;align-items:center;justify-content:center;cursor:pointer}.modal-close:hover{background:#f0f3f6}.modal-close svg{width:17px;height:17px}.modal-body{padding:18px;overflow:auto;max-height:calc(90vh - 64px)}.info-card{padding:17px}.section-title{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:#526175;margin-bottom:14px}.observations{margin-top:14px}.observations .field-value{height:62px;align-items:flex-start;padding-top:10px;white-space:normal}.files-card{margin-top:14px;overflow:hidden}.files-header{height:56px;padding:0 16px;background:#f7f9fb;border-bottom:1px solid #e2e7ed;display:flex;align-items:center}.files-title{font-size:13px;font-weight:700;color:#27364a}.files-count{margin-left:8px;min-width:24px;height:22px;border-radius:999px;background:#eaf6f1;color:#138b61;display:flex;align-items:center;justify-content:center;padding:0 7px;font-size:10px;font-weight:700}.files-header .secondary-btn{margin-left:auto;height:34px}.files-list{padding:14px;display:flex;flex-direction:column;gap:10px}.file-card{border:1px solid #dfe5eb;border-radius:12px;background:#fff;overflow:hidden}.file-head{min-height:50px;padding:0 12px;display:flex;align-items:center;background:#fbfcfd}.file-type-icon{width:30px;height:30px;border-radius:8px;background:#edf8f3;color:#138b61;display:flex;align-items:center;justify-content:center;flex-shrink:0}.file-type-icon svg{width:15px;height:15px}.file-name-wrap{min-width:0;margin-left:10px}.file-name{font-size:12px;font-weight:650;color:#2b394c;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.file-size{font-size:10px;color:#929daa;margin-top:2px}.file-tags{display:flex;align-items:center;gap:6px;margin-left:auto}.mini-tag{height:21px;border-radius:999px;padding:0 8px;display:flex;align-items:center;font-size:9px;font-weight:650;background:#eef3f6;color:#647286}.mini-tag.ok{background:#e9f7f0;color:#137d58}.file-menu{margin-left:6px}.file-body{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;padding:12px;border-top:1px solid #edf0f3}.file-footer{padding:0 12px 12px;display:flex;align-items:center;gap:14px}.checkline{display:flex;align-items:center;gap:7px;font-size:10px;color:#617084}.fake-check{width:15px;height:15px;border:1px solid #cfd7df;border-radius:4px;background:#fff}.fake-check.checked{background:#14895f;border-color:#14895f;position:relative}.fake-check.checked:after{content:"";position:absolute;width:7px;height:4px;border-left:1.5px solid #fff;border-bottom:1.5px solid #fff;transform:rotate(-45deg);left:3px;top:3px}.add-file-zone{margin:0 14px 14px;padding:18px;border:1px dashed #b8cfd8;border-radius:12px;background:#f9fcfb;display:none;align-items:center;justify-content:center;flex-direction:column;text-align:center;color:#687688}.add-file-zone.visible{display:flex}.upload-icon{width:34px;height:34px;border-radius:10px;background:#eaf6f1;color:#138b61;display:flex;align-items:center;justify-content:center;margin-bottom:8px}.upload-icon svg{width:18px;height:18px}.upload-text{font-size:12px}.upload-text strong{color:#138b61}.upload-help{font-size:10px;color:#929daa;margin-top:5px}.modal-footer{position:sticky;bottom:0;margin:14px -18px -18px;padding:12px 18px;background:rgba(244,247,250,.94);backdrop-filter:blur(8px);border-top:1px solid #dfe5eb;display:flex;align-items:center;justify-content:flex-end;gap:10px}.unsaved{margin-right:auto;font-size:10px;color:#8793a2}
+.quick-upload{background:#fff;border:1px solid #dfe5eb;border-radius:14px;overflow:hidden}.quick-upload-head{padding:14px 15px;background:#f8fafc;border-bottom:1px solid #e6eaee;display:flex;align-items:center}.quick-upload-title{font-size:12px;font-weight:700;color:#334256}.quick-upload-body{padding:15px}.upload-drop{min-height:135px;border:1.5px dashed #c8d5dc;border-radius:12px;background:#fafcfc;display:flex;align-items:center;justify-content:center;flex-direction:column;text-align:center;color:#6f7d8d}.upload-drop svg{width:25px;height:25px;color:#138b61;margin-bottom:9px}.upload-drop strong{color:#138b61}.upload-selected{margin-top:12px;padding:10px 12px;border:1px solid #dfe5eb;border-radius:10px;background:#fbfcfd;display:flex;align-items:center;gap:9px}.upload-selected-name{font-size:11px;font-weight:650;color:#354459}.upload-selected-meta{font-size:9px;color:#8e99a7;margin-top:2px}.bulk-list{display:flex;flex-direction:column;gap:8px}.bulk-row{display:grid;grid-template-columns:1.4fr 1fr .9fr 38px;gap:10px;align-items:end;padding:11px;border:1px solid #e2e7ec;border-radius:11px;background:#fff}.bulk-row .field-value{height:34px}.bulk-row .icon-btn{margin-bottom:2px}
+.toast{position:fixed;left:50%;bottom:25px;z-index:500;transform:translate(-50%,12px);background:#203044;color:#fff;border-radius:9px;padding:9px 13px;font-size:11px;opacity:0;visibility:hidden;transition:.18s ease}.toast.visible{opacity:1;visibility:visible;transform:translate(-50%,0)}
+@media(max-width:900px){.grid-6,.grid-4,.grid-3{grid-template-columns:repeat(2,minmax(0,1fr))}.page-header{align-items:flex-start;flex-direction:column}.entity-actions{position:static;margin-top:12px}.bulk-row{grid-template-columns:1fr 1fr}}@media(max-width:600px){.grid-6,.grid-4,.grid-3,.file-body,.bulk-row{grid-template-columns:1fr}.appbar-inner{padding:0 10px}.crumb{display:none}.page{padding-left:10px;padding-right:10px}.modal-backdrop{padding:10px}}
+
+/* ===== ITERACIÓN BANESCO / DEYEL NAV + BRAND ===== */
+:root{
+  --banesco-green:#00795e;
+  --banesco-blue:#16659d;
+  --deyel-plus:#41d88c;
+  --banesco-gradient:linear-gradient(90deg,var(--banesco-blue) 0%,var(--banesco-green) 100%);
+}
+body::before{
+  content:"";
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  height:3px;
+  background:var(--banesco-gradient);
+  z-index:999;
+  pointer-events:none;
+}
+.appbar{height:66px;background:#fff;border-bottom:1px solid #dfe4e8;box-shadow:0 1px 2px rgba(22,34,51,.03)}
+.appbar-inner{max-width:none;height:100%;margin:0;padding:0;gap:0}
+.deyel-side-trigger{width:54px;height:100%;display:flex;align-items:center;justify-content:center;border-right:1px solid #e2e6ea;color:#12a6c8;background:#fff}
+.deyel-side-trigger svg{width:17px;height:17px}
+.deyel-create{width:58px;height:100%;display:flex;align-items:center;justify-content:center;border-right:1px solid #e7ebef;background:#fff}
+.deyel-plus{width:40px;height:40px;border-radius:50%;background:var(--deyel-plus);color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 6px rgba(35,183,113,.24)}
+.deyel-plus svg{width:21px;height:21px}
+.banesco-navbar-brand{display:flex;align-items:center;height:100%;padding:0 18px 0 20px}
+.banesco-navbar-brand img{display:block;width:150px;height:auto;object-fit:contain}
+.deyel-nav-spacer{flex:1}
+.deyel-nav{height:100%;display:flex;align-items:center;gap:6px;padding-right:10px}
+.deyel-nav-item{min-width:56px;height:54px;padding:5px 6px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;background:transparent;color:#1f3851;font-size:9px;cursor:default}
+.deyel-nav-item svg{width:21px;height:21px;stroke:#1f3851}
+.deyel-avatar{width:38px;height:38px;border-radius:50%;margin:0 10px 0 4px;background:#f45e69;color:#fff;display:flex;align-items:center;justify-content:center;font-size:12px;border:2px solid #fff;box-shadow:0 0 0 1px #e2e7eb;position:relative}
+.deyel-avatar::after{content:"";position:absolute;right:-2px;bottom:0;width:8px;height:8px;border-radius:50%;background:#8ed14b;border:2px solid #fff}
+
+.breadcrumb{max-width:1160px;margin:0 auto;padding:12px 12px 0;display:flex;align-items:center;gap:6px;color:#8a96a5;font-size:11px}
+.breadcrumb button{background:transparent;color:#6f7d8d;cursor:pointer;padding:0}
+.breadcrumb button:hover{color:var(--banesco-green)}
+.breadcrumb-sep{color:#b0bac5}
+.page.with-breadcrumb{padding-top:14px}
+
+.entity-top .page-header{margin-bottom:18px}
+.entity-top .page-heading{align-items:flex-start}
+.entity-top .page-icon{background:#eef7f3;color:var(--banesco-green)}
+.entity-top .page-title{font-size:27px}
+.entity-top .page-subtitle{margin-top:4px}
+.entity-top .eyebrow{display:none}
+
+.entity-actions{top:0}
+.header-actions.entity-actions-row{gap:8px}
+.entity-tool{width:38px;height:38px;border:1px solid #cfd8df;border-radius:8px;background:#fff;color:#24364e;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 1px 2px rgba(22,34,51,.03)}
+.entity-tool:hover,.entity-tool.active{border-color:#72d9b4;background:#f1fbf7;color:var(--banesco-green)}
+.entity-tool svg{width:20px;height:20px}
+.entity-tool.help{color:#8d99a7}
+.entity-tool.attachment{border-color:#7bd9b8}
+.entity-separator{width:1px;height:28px;background:#d9e0e6;margin:5px 3px}
+
+.relations-popover{right:auto;left:0;top:46px;width:310px;border-radius:13px}
+.relations-head{display:none}
+.relation-item{min-height:54px;padding:0 13px}
+.relation-item-icon{width:34px;height:34px;border-radius:10px;background:#edf7f3;color:var(--banesco-green)}
+.relation-item-name{font-size:12px}
+.relation-item-meta{font-size:10px}
+.relation-item:hover{background:linear-gradient(90deg,rgba(22,101,157,.05),rgba(0,121,94,.07));color:var(--banesco-green)}
+
+.primary-btn{background:var(--banesco-green)}
+.primary-btn:hover{background:#00664f}
+.relation-btn.active{background:#f1fbf7;color:var(--banesco-green)}
+.page-icon,.modal-title-icon,.file-type-icon,.relation-item-icon{color:var(--banesco-green)}
+.table-card,.card{border-top-color:#dfe5eb}
+.brand-gradient-accent{height:3px;background:var(--banesco-gradient);border-radius:999px;margin:0 0 16px}
+
+@media(max-width:900px){
+  .banesco-navbar-brand img{width:120px}
+  .deyel-nav-item{display:none}
+  .deyel-avatar{margin-left:auto}
+}
+
+
+/* ===== ITERACIÓN V4 · BANESCO AZUL / NAVBAR COMPACTA ===== */
+:root{
+  --banesco-primary:#153e6d;
+  --banesco-primary-hover:#0f335d;
+  --banesco-primary-soft:#eef4fa;
+  --banesco-primary-border:#bdd0e2;
+}
+body::before{display:none!important}
+.appbar{height:54px!important;border-top:0!important;border-bottom:1px solid #dfe4e8!important;box-shadow:0 1px 2px rgba(22,34,51,.03)!important}
+.appbar-inner{height:54px!important}
+.banesco-navbar-brand{height:54px!important;padding:0 14px 0 14px!important;border-right:0!important}
+.banesco-navbar-brand img{width:130px!important;height:auto!important}
+.deyel-side-trigger{width:46px!important;height:54px!important;border-right:0!important;color:#12a6c8!important}
+.deyel-create{width:52px!important;height:54px!important;border-right:1px solid #e7ebef!important}
+.deyel-plus{width:34px!important;height:34px!important;background:var(--banesco-primary)!important;color:#fff!important;box-shadow:0 2px 6px rgba(21,62,109,.22)!important}
+.deyel-plus svg{width:19px!important;height:19px!important}
+.deyel-nav{height:54px!important}
+.deyel-nav-item{height:48px!important}
+.deyel-avatar{width:34px!important;height:34px!important}
+
+.primary-btn{background:var(--banesco-primary)!important;color:#fff!important;box-shadow:0 1px 2px rgba(21,62,109,.18)!important}
+.primary-btn:hover{background:var(--banesco-primary-hover)!important}
+.page-icon,.relation-item-icon,.modal-title-icon,.file-type-icon,.upload-icon,.smart-extension-icon{background:var(--banesco-primary-soft)!important;color:var(--banesco-primary)!important}
+.entity-tool:hover,.entity-tool.active,.relation-btn.active{border-color:var(--banesco-primary-border)!important;background:var(--banesco-primary-soft)!important;color:var(--banesco-primary)!important}
+.entity-tool.attachment{border-color:var(--banesco-primary-border)!important;color:var(--banesco-primary)!important}
+.relation-item:hover{background:#f4f8fc!important;color:var(--banesco-primary)!important}
+.relation-item:hover .relation-item-icon{background:#e7f0f8!important;color:var(--banesco-primary)!important}
+.icon-btn:hover{background:var(--banesco-primary-soft)!important;color:var(--banesco-primary)!important}
+.row-action-view:hover,.row-action-upload:hover{background:var(--banesco-primary-soft)!important;color:var(--banesco-primary)!important}
+.files-count{background:var(--banesco-primary-soft)!important;color:var(--banesco-primary)!important}
+.upload-text strong,.upload-drop strong{color:var(--banesco-primary)!important}
+.upload-drop svg{color:var(--banesco-primary)!important}
+.fake-switch{background:var(--banesco-primary)!important}
+.fake-check.checked{background:var(--banesco-primary)!important;border-color:var(--banesco-primary)!important}
+.breadcrumb button:hover{color:var(--banesco-primary)!important}
+.entity-top .page-icon{background:var(--banesco-primary-soft)!important;color:var(--banesco-primary)!important}
+
+
+/* ===== ITERACIÓN V5 · AJUSTES NAV + JERARQUÍA DE ENCABEZADOS ===== */
+
+/* 1. Logo + flecha forman el primer agrupador; el divisor aparece recién antes del + */
+.deyel-side-trigger{
+    border-right:1px solid #e7ebef!important;
+}
+.deyel-create{
+    border-right:0!important;
+}
+
+/* 2. Encabezados más compactos + más aire antes del contenido */
+.entity-top .page-header{
+    margin-bottom:28px!important;
+}
+.entity-top .page-title{
+    font-size:22px!important;
+    line-height:1.2!important;
+}
+.entity-top .page-subtitle{
+    font-size:12px!important;
+    margin-top:5px!important;
+}
+
+/* Pantalla Checklist Documental */
+#checklistScreen .page-header{
+    margin-bottom:28px!important;
+}
+#checklistScreen .page-title{
+    font-size:22px!important;
+    line-height:1.2!important;
+}
+#checklistScreen .page-subtitle{
+    font-size:12px!important;
+    margin-top:5px!important;
+}
+
+
+/* ===== ITERACIÓN V6 · NAVBAR MÁS COMPACTA + ALINEACIÓN DEL BOTÓN + ===== */
+.appbar{
+    height:48px!important;
+}
+.appbar-inner{
+    height:48px!important;
+}
+.banesco-navbar-brand{
+    height:48px!important;
+    padding:0 10px 0 12px!important;
+}
+.banesco-navbar-brand img{
+    width:118px!important;
+}
+.deyel-side-trigger{
+    width:38px!important;
+    height:48px!important;
+}
+.deyel-create{
+    width:48px!important;
+    height:48px!important;
+}
+.deyel-plus{
+    width:32px!important;
+    height:32px!important;
+}
+.deyel-plus svg{
+    width:18px!important;
+    height:18px!important;
+}
+.deyel-nav{
+    height:48px!important;
+}
+.deyel-nav-item{
+    height:44px!important;
+}
+.deyel-avatar{
+    width:32px!important;
+    height:32px!important;
+}
+
+</style>
+</head>
+<body>
+<header class="appbar">
+  <div class="appbar-inner">
+    <div class="banesco-navbar-brand">
+      <img src="data:image/png;base64,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UmVhZHlxyWU8AAADJ2lUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgMTAuMC1jMDAwIDc5LmQyMGU0NjYzMCwgMjAyNS8xMi8wOS0wMjoxMToyMyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIDI3LjggKFdpbmRvd3MpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjg1QUQ0NzU5ODIyMjExRjFCMzdFOTA4MDg2ODgyNjA0IiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjg1QUQ0NzVBODIyMjExRjFCMzdFOTA4MDg2ODgyNjA0Ij4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6ODVBRDQ3NTc4MjIyMTFGMUIzN0U5MDgwODY4ODI2MDQiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6ODVBRDQ3NTg4MjIyMTFGMUIzN0U5MDgwODY4ODI2MDQiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz6uJn0FAAAWL0lEQVR42uxdC5gVxZWugREIKOsL8IEgTwmgGFdRRF5GFGOIgVUXIsxoUCM+UTfiJCiis0HFjUBWgu4S0ECEjYwS0QCD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" alt="Banesco">
+    </div>
+    <div class="deyel-side-trigger" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none"><path d="M9 6L15 12L9 18" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <div class="deyel-create" aria-hidden="true">
+      <div class="deyel-plus">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M12 5V19M5 12H19" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>
+      </div>
+    </div>
+    <div class="deyel-nav-spacer"></div>
+    <nav class="deyel-nav" aria-label="Navegación Deyel">
+      <div class="deyel-nav-item"><svg viewBox="0 0 24 24" fill="none"><path d="M3 11L12 3L21 11V21H15V15H9V21H3V11Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg><span>Inicio</span></div>
+      <div class="deyel-nav-item"><svg viewBox="0 0 24 24" fill="none"><path d="M5 6H15M5 12H15M5 18H15M18 5L20 7L23 3M18 11L20 13L23 9M18 17L20 19L23 15" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Tareas</span></div>
+      <div class="deyel-nav-item"><svg viewBox="0 0 24 24" fill="none"><rect x="4" y="5" width="16" height="15" rx="1.5" stroke="currentColor" stroke-width="1.7"/><path d="M8 3V7M16 3V7M4 10H20" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg><span>Calendarios</span></div>
+      <div class="deyel-nav-item"><svg viewBox="0 0 24 24" fill="none"><path d="M7 7V5H17V7M5 8H19V20H5V8Z" stroke="currentColor" stroke-width="1.7"/><path d="M9 12H15" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg><span>Casos</span></div>
+      <div class="deyel-nav-item"><svg viewBox="0 0 24 24" fill="none"><path d="M4 5H20V16H9L5 20V16H4V5Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg><span>Mensajes</span></div>
+      <div class="deyel-nav-item"><svg viewBox="0 0 24 24" fill="none"><circle cx="9" cy="8" r="3" stroke="currentColor" stroke-width="1.7"/><path d="M4 19C4.5 15.5 6.3 14 9 14C11.7 14 13.5 15.5 14 19M18 7V13M15 10H21" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg><span>Invitar</span></div>
+      <div class="deyel-avatar">IC</div>
+    </nav>
+  </div>
+</header>
+
+<!-- SCREEN 1: ENTIDAD -->
+<section class="screen active" id="requestScreen">
+  <div class="breadcrumb"><button onclick="openRequest()">Inicio</button><span class="breadcrumb-sep">›</span><span>Solicitud Préstamos Personales</span></div>
+  <main class="page entity-top with-breadcrumb">
+    <div class="page-header">
+      <div class="page-heading">
+        <div class="page-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M6 3H18V21H6V3Z" stroke="currentColor" stroke-width="1.7"/><path d="M9 7H15M9 11H15M9 15H13" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></div>
+        <div><h1 class="page-title">Solicitud Préstamos Personales</h1><p class="page-subtitle">Instancia de solicitud · ID 28757</p></div>
+      </div>
+      <div class="header-actions entity-actions-row">
+        <div class="relation-wrapper">
+          <button class="entity-tool relation-btn" id="relationBtn" onclick="toggleRelations(event)" title="Relaciones">
+            <svg viewBox="0 0 24 24" fill="none"><circle cx="6" cy="7" r="2.5" fill="currentColor"/><circle cx="18" cy="6" r="2.5" fill="currentColor"/><circle cx="13" cy="17" r="2.5" fill="currentColor"/><path d="M8.5 7L15.5 6.2M7.4 9L11.5 14.7M16.9 8L14.2 14.6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+          </button>
+          <div class="relations-popover" id="relationsPopover">
+            <button class="relation-item" onclick="openChecklist()">
+              <span class="relation-item-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M5 4H19V20H5V4Z" stroke="currentColor" stroke-width="1.6"/><path d="M8 8L9.5 9.5L12 7M8 13L9.5 14.5L12 12M14 8H17M14 13H17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+              <span><div class="relation-item-name">Checklist Documental</div><div class="relation-item-meta">Documentos asociados a la solicitud</div></span>
+            </button>
+            <button class="relation-item"><span class="relation-item-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M7 4H17V20H7V4Z" stroke="currentColor" stroke-width="1.6"/></svg></span><span><div class="relation-item-name">Datos del solicitante</div><div class="relation-item-meta">Información relacionada</div></span></button>
+            <button class="relation-item"><span class="relation-item-icon"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="1.6"/></svg></span><span><div class="relation-item-name">Historial de gestión</div><div class="relation-item-meta">Trazabilidad de la solicitud</div></span></button>
+          </div>
+        </div>
+        <button class="entity-tool" title="Comentarios"><svg viewBox="0 0 24 24" fill="none"><path d="M5 6H19V16H10L6 20V16H5V6Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg></button>
+        <span class="entity-separator"></span>
+        <button class="entity-tool help" title="Ayuda"><svg viewBox="0 0 24 24" fill="none"><path d="M9.4 9A3 3 0 1 1 14 11.5C12.6 12.4 12 13 12 14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><circle cx="12" cy="18" r="1" fill="currentColor"/></svg></button>
+        <button class="entity-tool attachment" title="Adjuntos"><svg viewBox="0 0 24 24" fill="none"><path d="M8.5 12.5L15.5 5.5C17 4 19.5 4 21 5.5C22.5 7 22.5 9.5 21 11L11.5 20.5C9.2 22.8 5.4 22.8 3.1 20.5C.8 18.2.8 14.4 3.1 12.1L12 3.2" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></button>
+      </div>
+    </div>
+
+    <section class="card section-card">
+      <div class="section-head"><div class="section-head-title">Solicitud de Préstamo Personal</div></div>
+      <div class="section-body"><div class="grid-4"><div class="field"><div class="field-label">ID Solicitud</div><div class="field-value">28757</div></div><div class="field"><div class="field-label">Estado</div><div class="field-value">En gestión</div></div><div class="field"><div class="field-label">Fecha de apertura</div><div class="field-value">03/09/2026</div></div><div class="field"><div class="field-label">Ejecutivo</div><div class="field-value">Sandra López</div></div></div></div>
+    </section>
+
+    <section class="card section-card">
+      <div class="section-head"><div class="section-head-title">Datos Canal de Ventas</div></div>
+      <div class="section-body"><div class="grid-6"><div class="field"><div class="field-label">Feria</div><div class="field-value">REGULAR</div></div><div class="field"><div class="field-label">Canal de ventas</div><div class="field-value">12 de Octubre</div></div><div class="field"><div class="field-label">Ejecutivo</div><div class="field-value">Sandra López</div></div><div class="field"><div class="field-label">Sucursal de desembolso</div><div class="field-value">Casa Matriz</div></div><div class="field"><div class="field-label">Teléfono de contacto</div><div class="field-value muted">—</div></div><div class="field"><div class="field-label">PDF Cotización</div><div class="field-value">Cotización_Préstamo.pdf</div></div></div></div>
+    </section>
+
+    <section class="card section-card">
+      <div class="section-head"><div class="section-head-title">Datos Solicitante</div></div>
+      <div class="section-body"><div class="grid-6"><div class="field"><div class="field-label">Tipo de identificación</div><div class="field-value">Cédula de Identidad</div></div><div class="field"><div class="field-label">Identificación</div><div class="field-value">8-899-405</div></div><div class="field"><div class="field-label">Primer nombre</div><div class="field-value">KIMBERLY</div></div><div class="field"><div class="field-label">Primer apellido</div><div class="field-value">HERNANDEZ</div></div><div class="field"><div class="field-label">Segundo apellido</div><div class="field-value">CARRION</div></div><div class="field"><div class="field-label">País emisor</div><div class="field-value">Panamá</div></div></div></div>
+    </section>
+  </main>
+</section>
+
+<!-- SCREEN 2: CHECKLIST -->
+<section class="screen" id="checklistScreen">
+  <div class="breadcrumb"><button onclick="openRequest()">Inicio</button><span class="breadcrumb-sep">›</span><button onclick="openRequest()">Solicitud Préstamos Personales</button><span class="breadcrumb-sep">›</span><span>Checklist Documental</span></div>
+  <main class="page with-breadcrumb">
+    <div class="page-header">
+      <div class="page-heading"><div class="page-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M5 4H19V20H5V4Z" stroke="currentColor" stroke-width="1.6"/><path d="M8 8L9.5 9.5L12 7M8 13L9.5 14.5L12 12M14 8H17M14 13H17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div><div><h1 class="page-title">Checklist Documental</h1><p class="page-subtitle">Documentación requerida para la solicitud 28757</p></div></div>
+    </div>
+
+    <section class="table-card">
+      <div class="table-toolbar"><div class="table-title">Documentos del proceso</div><div class="table-meta">8 tipos documentales</div><button class="primary-btn" onclick="openBulkUpload()"><svg viewBox="0 0 24 24" fill="none"><path d="M12 16V4M12 4L8 8M12 4L16 8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><path d="M5 15V19H19V15" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>Cargar Documentos a OnBase</button></div>
+      <div class="table-wrap"><table class="doc-table"><thead><tr><th>Tipo documental</th><th>Etapa del proceso</th><th>¿Documento en OnBase?</th><th>¿Es obligatorio?</th><th>¿Documentación correcta?</th><th style="text-align:right">Acciones</th></tr></thead><tbody>
+        <tr><td class="doc-name">CIF - Validación de lista de vigilancia / KIMBERLY HERNANDEZ CARRION</td><td>Solicitar</td><td class="bool">NO</td><td class="bool">Sí</td><td class="bool">Sí</td><td><div class="row-actions"><button class="icon-btn row-action-view" onclick="openDocumentModal('CIF - Validación de lista de vigilancia')" title="Ver documento"><svg viewBox="0 0 24 24" fill="none"><path d="M3 12C5.5 8 8.5 6 12 6C15.5 6 18.5 8 21 12C18.5 16 15.5 18 12 18C8.5 18 5.5 16 3 12Z" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="2.5" stroke="currentColor" stroke-width="1.6"/></svg></button><button class="icon-btn row-action-upload" onclick="openQuickUpload('CIF - Validación de lista de vigilancia')" title="Cargar directo"><svg viewBox="0 0 24 24" fill="none"><path d="M12 16V4M12 4L8 8M12 4L16 8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><path d="M5 15V20H19V15" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></button></div></td></tr>
+        <tr><td class="doc-name">CIF - Validación de google / KIMBERLY HERNANDEZ CARRION</td><td>Solicitar</td><td class="bool">NO</td><td class="bool">Sí</td><td class="bool">No</td><td><div class="row-actions"><button class="icon-btn row-action-view" onclick="openDocumentModal('CIF - Validación de google')" title="Ver documento"><svg viewBox="0 0 24 24" fill="none"><path d="M3 12C5.5 8 8.5 6 12 6C15.5 6 18.5 8 21 12C18.5 16 15.5 18 12 18C8.5 18 5.5 16 3 12Z" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="2.5" stroke="currentColor" stroke-width="1.6"/></svg></button><button class="icon-btn row-action-upload" onclick="openQuickUpload('CIF - Validación de google')" title="Cargar directo"><svg viewBox="0 0 24 24" fill="none"><path d="M12 16V4M12 4L8 8M12 4L16 8" stroke="currentColor" stroke-width="1.7"/><path d="M5 15V20H19V15" stroke="currentColor" stroke-width="1.7"/></svg></button></div></td></tr>
+        <tr><td class="doc-name">CIF - Informe de visita / KIMBERLY HERNANDEZ CARRION</td><td>Solicitar</td><td class="bool">NO</td><td class="bool">No</td><td class="bool">No</td><td><div class="row-actions"><button class="icon-btn row-action-view" onclick="openDocumentModal('CIF - Informe de visita')" title="Ver documento"><svg viewBox="0 0 24 24" fill="none"><path d="M3 12C5.5 8 8.5 6 12 6C15.5 6 18.5 8 21 12C18.5 16 15.5 18 12 18C8.5 18 5.5 16 3 12Z" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="2.5" stroke="currentColor" stroke-width="1.6"/></svg></button><button class="icon-btn row-action-upload" onclick="openQuickUpload('CIF - Informe de visita')" title="Cargar directo"><svg viewBox="0 0 24 24" fill="none"><path d="M12 16V4M12 4L8 8M12 4L16 8" stroke="currentColor" stroke-width="1.7"/><path d="M5 15V20H19V15" stroke="currentColor" stroke-width="1.7"/></svg></button></div></td></tr>
+        <tr><td class="doc-name">CIF - Ficha Seguro Social / KIMBERLY HERNANDEZ CARRION</td><td>Solicitar</td><td class="bool">NO</td><td class="bool">No</td><td class="bool">No</td><td><div class="row-actions"><button class="icon-btn row-action-view" onclick="openDocumentModal('CIF - Ficha Seguro Social')" title="Ver documento"><svg viewBox="0 0 24 24" fill="none"><path d="M3 12C5.5 8 8.5 6 12 6C15.5 6 18.5 8 21 12C18.5 16 15.5 18 12 18C8.5 18 5.5 16 3 12Z" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="2.5" stroke="currentColor" stroke-width="1.6"/></svg></button><button class="icon-btn row-action-upload" onclick="openQuickUpload('CIF - Ficha Seguro Social')" title="Cargar directo"><svg viewBox="0 0 24 24" fill="none"><path d="M12 16V4M12 4L8 8M12 4L16 8" stroke="currentColor" stroke-width="1.7"/><path d="M5 15V20H19V15" stroke="currentColor" stroke-width="1.7"/></svg></button></div></td></tr>
+        <tr><td class="doc-name">CIF - Estados de Cuenta y Cartas de Ref Bancarias de Otros Bancos</td><td>Solicitar</td><td class="bool">NO</td><td class="bool">No</td><td class="bool">No</td><td><div class="row-actions"><button class="icon-btn row-action-view" onclick="openDocumentModal('CIF - Estados de Cuenta')" title="Ver documento"><svg viewBox="0 0 24 24" fill="none"><path d="M3 12C5.5 8 8.5 6 12 6C15.5 6 18.5 8 21 12C18.5 16 15.5 18 12 18C8.5 18 5.5 16 3 12Z" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="2.5" stroke="currentColor" stroke-width="1.6"/></svg></button><button class="icon-btn row-action-upload" onclick="openQuickUpload('CIF - Estados de Cuenta')" title="Cargar directo"><svg viewBox="0 0 24 24" fill="none"><path d="M12 16V4M12 4L8 8M12 4L16 8" stroke="currentColor" stroke-width="1.7"/><path d="M5 15V20H19V15" stroke="currentColor" stroke-width="1.7"/></svg></button></div></td></tr>
+        <tr><td class="doc-name">CIF - Comprobante o Talonario de Pago / KIMBERLY HERNANDEZ CARRION</td><td>Solicitar</td><td class="bool">NO</td><td class="bool">Sí</td><td class="bool">No</td><td><div class="row-actions"><button class="icon-btn row-action-view" onclick="openDocumentModal('CIF - Comprobante o Talonario de Pago')" title="Ver documento"><svg viewBox="0 0 24 24" fill="none"><path d="M3 12C5.5 8 8.5 6 12 6C15.5 6 18.5 8 21 12C18.5 16 15.5 18 12 18C8.5 18 5.5 16 3 12Z" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="2.5" stroke="currentColor" stroke-width="1.6"/></svg></button><button class="icon-btn row-action-upload" onclick="openQuickUpload('CIF - Comprobante o Talonario de Pago')" title="Cargar directo"><svg viewBox="0 0 24 24" fill="none"><path d="M12 16V4M12 4L8 8M12 4L16 8" stroke="currentColor" stroke-width="1.7"/><path d="M5 15V20H19V15" stroke="currentColor" stroke-width="1.7"/></svg></button></div></td></tr>
+        <tr><td class="doc-name">CIF - Carta de Trabajo o Cert de Jubilado / KIMBERLY HERNANDEZ CARRION</td><td>Solicitar</td><td class="bool">NO</td><td class="bool">Sí</td><td class="bool">Sí</td><td><div class="row-actions"><button class="icon-btn row-action-view" onclick="openDocumentModal('CIF - Carta de Trabajo')" title="Ver documento"><svg viewBox="0 0 24 24" fill="none"><path d="M3 12C5.5 8 8.5 6 12 6C15.5 6 18.5 8 21 12C18.5 16 15.5 18 12 18C8.5 18 5.5 16 3 12Z" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="2.5" stroke="currentColor" stroke-width="1.6"/></svg></button><button class="icon-btn row-action-upload" onclick="openQuickUpload('CIF - Carta de Trabajo')" title="Cargar directo"><svg viewBox="0 0 24 24" fill="none"><path d="M12 16V4M12 4L8 8M12 4L16 8" stroke="currentColor" stroke-width="1.7"/><path d="M5 15V20H19V15" stroke="currentColor" stroke-width="1.7"/></svg></button></div></td></tr>
+        <tr><td class="doc-name">CIF - Verificación de referencias APC / KIMBERLY HERNANDEZ CARRION</td><td>Solicitar</td><td class="bool">NO</td><td class="bool">Sí</td><td class="bool">Sí</td><td><div class="row-actions"><button class="icon-btn row-action-view" onclick="openDocumentModal('CIF - Verificación de referencias APC')" title="Ver documento"><svg viewBox="0 0 24 24" fill="none"><path d="M3 12C5.5 8 8.5 6 12 6C15.5 6 18.5 8 21 12C18.5 16 15.5 18 12 18C8.5 18 5.5 16 3 12Z" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="2.5" stroke="currentColor" stroke-width="1.6"/></svg></button><button class="icon-btn row-action-upload" onclick="openQuickUpload('CIF - Verificación de referencias APC')" title="Cargar directo"><svg viewBox="0 0 24 24" fill="none"><path d="M12 16V4M12 4L8 8M12 4L16 8" stroke="currentColor" stroke-width="1.7"/><path d="M5 15V20H19V15" stroke="currentColor" stroke-width="1.7"/></svg></button></div></td></tr>
+      </tbody></table></div>
+    </section>
+  </main>
+</section>
+
+<!-- VIEW DOCUMENT MODAL -->
+<div class="modal-backdrop" id="docModalBackdrop" onclick="handleBackdrop(event,'docModalBackdrop')"><section class="modal"><div class="modal-head"><div class="modal-title-wrap"><div class="modal-title-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M6 3H18V21H6V3Z" stroke="currentColor" stroke-width="1.6"/><path d="M9 8H15M9 12H15" stroke="currentColor" stroke-width="1.6"/></svg></div><div><div class="modal-title">Documento del proceso</div><div class="modal-subtitle" id="modalDocName">Tipo documental</div></div></div><button class="modal-close" onclick="closeModal('docModalBackdrop')"><svg viewBox="0 0 24 24" fill="none"><path d="M6 6L18 18M18 6L6 18" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></button></div><div class="modal-body">
+  <section class="card info-card"><div class="section-title">Documento del proceso</div><div class="grid-4"><div class="field"><div class="field-label">Tipo documental</div><div class="field-value" id="docTypeValue">—</div></div><div class="field"><div class="field-label">Etapa del proceso</div><div class="field-value">Solicitar</div></div><div class="field"><div class="field-label">Solicitud / Instancia</div><div class="field-value">28757</div></div><div class="field"><div class="field-label">Estado</div><div class="field-value">En gestión</div></div><div class="field"><div class="field-label">¿Documento obligatorio?</div><div class="field-value">Sí</div></div><div class="field"><div class="field-label">¿Documentación central?</div><div class="field-value">No</div></div><div class="field"><div class="field-label">¿Tiene vigencia?</div><div class="field-value">No</div></div><div class="field"><div class="field-label">Fecha de vigencia</div><div class="field-value muted">—</div></div></div><div class="observations field"><div class="field-label">Observaciones</div><div class="field-value">Documentación asociada a la solicitud. Verifique los archivos antes de confirmar los cambios.</div></div></section>
+  <section class="card files-card"><div class="files-header"><div class="files-title">Archivos</div><div class="files-count" id="modalFilesCount">2</div><button class="secondary-btn" onclick="toggleAddFile()"><svg viewBox="0 0 24 24" fill="none"><path d="M12 5V19M5 12H19" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>Adicionar archivo</button></div><div class="files-list" id="filesList">
+    <article class="file-card" data-file-card><div class="file-head"><div class="file-type-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M7 3H15L19 7V21H7V3Z" stroke="currentColor" stroke-width="1.6"/><path d="M15 3V7H19" stroke="currentColor" stroke-width="1.6"/></svg></div><div class="file-name-wrap"><div class="file-name">Acta_Poder_Cliente.pdf</div><div class="file-size">1.8 MB · PDF</div></div><div class="file-tags"><span class="mini-tag ok">Integrado</span><span class="mini-tag">OnBase</span></div><button class="icon-btn file-menu" onclick="toggleFile(this)" title="Expandir"><svg viewBox="0 0 24 24" fill="none"><path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></button><button class="icon-btn" onclick="deleteFile(this)" title="Eliminar"><svg viewBox="0 0 24 24" fill="none"><path d="M4 7H20M8 7L9 20H15L16 7M9 4H15" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button></div><div class="file-body hidden"><div class="field"><div class="field-label">Estado integración</div><div class="field-value">Integrado</div></div><div class="field"><div class="field-label">Estado OnBase</div><div class="field-value">Disponible</div></div><div class="field"><div class="field-label">Estado validador</div><div class="field-value">Validado</div></div><div class="field"><div class="field-label">Fecha carga</div><div class="field-value">03/09/2026</div></div></div><div class="file-footer"><div class="checkline"><span class="fake-check checked"></span>Documento válido</div><div class="checkline"><span class="fake-check"></span>Requiere revisión</div></div></article>
+    <article class="file-card" data-file-card><div class="file-head"><div class="file-type-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M7 3H15L19 7V21H7V3Z" stroke="currentColor" stroke-width="1.6"/><path d="M15 3V7H19" stroke="currentColor" stroke-width="1.6"/></svg></div><div class="file-name-wrap"><div class="file-name">Contrato_Firmado.pdf</div><div class="file-size">2.4 MB · PDF</div></div><div class="file-tags"><span class="mini-tag ok">Integrado</span><span class="mini-tag">OnBase</span></div><button class="icon-btn file-menu" onclick="toggleFile(this)" title="Expandir"><svg viewBox="0 0 24 24" fill="none"><path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></button><button class="icon-btn" onclick="deleteFile(this)" title="Eliminar"><svg viewBox="0 0 24 24" fill="none"><path d="M4 7H20M8 7L9 20H15L16 7M9 4H15" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button></div><div class="file-body hidden"><div class="field"><div class="field-label">Estado integración</div><div class="field-value">Integrado</div></div><div class="field"><div class="field-label">Estado OnBase</div><div class="field-value">Disponible</div></div><div class="field"><div class="field-label">Estado validador</div><div class="field-value">Pendiente</div></div><div class="field"><div class="field-label">Fecha carga</div><div class="field-value">03/09/2026</div></div></div><div class="file-footer"><div class="checkline"><span class="fake-check checked"></span>Documento válido</div><div class="checkline"><span class="fake-check"></span>Requiere revisión</div></div></article>
+  </div><div class="add-file-zone" id="addFileZone"><div class="upload-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 16V4M12 4L8 8M12 4L16 8" stroke="currentColor" stroke-width="1.8"/><path d="M5 15V19H19V15" stroke="currentColor" stroke-width="1.8"/></svg></div><div class="upload-text">Arrastre un archivo aquí o <strong>seleccione desde su equipo</strong></div><div class="upload-help">PDF, imágenes o planillas · prototipo visual</div><button class="primary-btn" style="margin-top:11px" onclick="addDemoFile()">Simular carga</button></div></section>
+  <div class="modal-footer"><span class="unsaved">Cambios no guardados</span><button class="secondary-btn" onclick="closeModal('docModalBackdrop')">Cancelar</button><button class="primary-btn" onclick="saveDocument()">Modificar</button></div>
+</div></section></div>
+
+<!-- QUICK DIRECT UPLOAD -->
+<div class="modal-backdrop" id="quickUploadBackdrop" onclick="handleBackdrop(event,'quickUploadBackdrop')"><section class="modal compact"><div class="modal-head"><div class="modal-title-wrap"><div class="modal-title-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 16V4M12 4L8 8M12 4L16 8" stroke="currentColor" stroke-width="1.8"/><path d="M5 15V20H19V15" stroke="currentColor" stroke-width="1.8"/></svg></div><div><div class="modal-title">Cargar documento</div><div class="modal-subtitle" id="quickUploadDocName">Tipo documental</div></div></div><button class="modal-close" onclick="closeModal('quickUploadBackdrop')"><svg viewBox="0 0 24 24" fill="none"><path d="M6 6L18 18M18 6L6 18" stroke="currentColor" stroke-width="1.7"/></svg></button></div><div class="modal-body"><section class="quick-upload"><div class="quick-upload-head"><div class="quick-upload-title">Nuevo Documento</div></div><div class="quick-upload-body"><div class="grid-3"><div class="field"><div class="field-label">Nombre del archivo</div><div class="field-value">Documento_cliente.pdf</div></div><div class="field"><div class="field-label">Estado integración</div><div class="field-value">Pendiente</div></div><div class="field"><div class="field-label">¿Documento válido?</div><div class="switchline"><span class="fake-switch"></span><span style="font-size:11px;color:#647286">Sí</span></div></div></div><div class="upload-drop" style="margin-top:14px"><svg viewBox="0 0 24 24" fill="none"><path d="M12 16V4M12 4L8 8M12 4L16 8" stroke="currentColor" stroke-width="1.8"/><path d="M5 15V20H19V15" stroke="currentColor" stroke-width="1.8"/></svg><div style="font-size:12px">Arrastre un archivo aquí o <strong>seleccione desde su equipo</strong></div><div class="upload-help">Carga directa para este tipo documental</div></div></div></section><div class="modal-footer"><button class="secondary-btn" onclick="closeModal('quickUploadBackdrop')">Cancelar</button><button class="primary-btn" onclick="completeQuickUpload()">Cargar</button></div></div></section></div>
+
+<!-- BULK ONBASE UPLOAD -->
+<div class="modal-backdrop" id="bulkUploadBackdrop" onclick="handleBackdrop(event,'bulkUploadBackdrop')"><section class="modal medium"><div class="modal-head"><div class="modal-title-wrap"><div class="modal-title-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 16V4M12 4L8 8M12 4L16 8" stroke="currentColor" stroke-width="1.8"/><path d="M5 15V20H19V15" stroke="currentColor" stroke-width="1.8"/></svg></div><div><div class="modal-title">Cargar Documentos a OnBase</div><div class="modal-subtitle">Carga de varios documentos de la solicitud</div></div></div><button class="modal-close" onclick="closeModal('bulkUploadBackdrop')"><svg viewBox="0 0 24 24" fill="none"><path d="M6 6L18 18M18 6L6 18" stroke="currentColor" stroke-width="1.7"/></svg></button></div><div class="modal-body"><section class="card info-card"><div class="section-title">Nuevo Documento</div><div class="bulk-list"><div class="bulk-row"><div class="field"><div class="field-label">Archivo</div><div class="field-value">cedula_cliente.pdf</div></div><div class="field"><div class="field-label">Tipo documental</div><div class="field-value">Identificación</div></div><div class="field"><div class="field-label">Estado</div><div class="field-value">Pendiente</div></div><button class="icon-btn"><svg viewBox="0 0 24 24" fill="none"><path d="M4 7H20M8 7L9 20H15L16 7" stroke="currentColor" stroke-width="1.6"/></svg></button></div><div class="bulk-row"><div class="field"><div class="field-label">Archivo</div><div class="field-value">carta_trabajo.pdf</div></div><div class="field"><div class="field-label">Tipo documental</div><div class="field-value">Carta de Trabajo</div></div><div class="field"><div class="field-label">Estado</div><div class="field-value">Pendiente</div></div><button class="icon-btn"><svg viewBox="0 0 24 24" fill="none"><path d="M4 7H20M8 7L9 20H15L16 7" stroke="currentColor" stroke-width="1.6"/></svg></button></div></div><button class="secondary-btn" style="margin-top:12px"><svg viewBox="0 0 24 24" fill="none"><path d="M12 5V19M5 12H19" stroke="currentColor" stroke-width="1.7"/></svg>Agregar archivo</button></section><div class="modal-footer"><button class="secondary-btn" onclick="closeModal('bulkUploadBackdrop')">Cancelar</button><button class="primary-btn" onclick="completeBulkUpload()">Subir documentos</button></div></div></section></div>
+
+<div class="toast" id="toast">Cambios guardados</div>
+<script>
+function setScreen(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));document.getElementById(id).classList.add('active');window.scrollTo({top:0,behavior:'smooth'})}
+function openRequest(){setScreen('requestScreen')}
+function openChecklist(){document.getElementById('relationsPopover').classList.remove('open');document.getElementById('relationBtn').classList.remove('active');setScreen('checklistScreen')}
+function toggleRelations(e){e.stopPropagation();const p=document.getElementById('relationsPopover');p.classList.toggle('open');document.getElementById('relationBtn').classList.toggle('active',p.classList.contains('open'))}
+function openModal(id){document.getElementById(id).classList.add('open');document.body.classList.add('modal-open')}
+function closeModal(id){document.getElementById(id).classList.remove('open');if(!document.querySelector('.modal-backdrop.open'))document.body.classList.remove('modal-open')}
+function handleBackdrop(e,id){if(e.target.id===id)closeModal(id)}
+function openDocumentModal(name){document.getElementById('modalDocName').textContent=name;document.getElementById('docTypeValue').textContent=name;openModal('docModalBackdrop')}
+function openQuickUpload(name){document.getElementById('quickUploadDocName').textContent=name;openModal('quickUploadBackdrop')}
+function openBulkUpload(){openModal('bulkUploadBackdrop')}
+function toggleFile(btn){btn.closest('.file-card').querySelector('.file-body').classList.toggle('hidden')}
+function toggleAddFile(){document.getElementById('addFileZone').classList.toggle('visible')}
+function deleteFile(btn){btn.closest('.file-card').remove();updateFileCount()}
+function addDemoFile(){const list=document.getElementById('filesList');const card=document.createElement('article');card.className='file-card';card.setAttribute('data-file-card','');card.innerHTML=`<div class="file-head"><div class="file-type-icon">📄</div><div class="file-name-wrap"><div class="file-name">Nuevo_documento.pdf</div><div class="file-size">860 KB · PDF</div></div><div class="file-tags"><span class="mini-tag">Pendiente</span></div><button class="icon-btn file-menu" onclick="toggleFile(this)">⌄</button><button class="icon-btn" onclick="deleteFile(this)">✕</button></div><div class="file-body"><div class="field"><div class="field-label">Estado integración</div><div class="field-value">Pendiente</div></div><div class="field"><div class="field-label">Estado OnBase</div><div class="field-value">Pendiente</div></div><div class="field"><div class="field-label">Estado validador</div><div class="field-value">Pendiente</div></div><div class="field"><div class="field-label">Fecha carga</div><div class="field-value">03/09/2026</div></div></div>`;list.appendChild(card);document.getElementById('addFileZone').classList.remove('visible');updateFileCount();showToast('Archivo agregado')}
+function updateFileCount(){document.getElementById('modalFilesCount').textContent=document.querySelectorAll('[data-file-card]').length}
+function saveDocument(){showToast('Cambios guardados');setTimeout(()=>closeModal('docModalBackdrop'),500)}
+function completeQuickUpload(){showToast('Documento cargado');setTimeout(()=>closeModal('quickUploadBackdrop'),500)}
+function completeBulkUpload(){showToast('Documentos enviados a OnBase');setTimeout(()=>closeModal('bulkUploadBackdrop'),500)}
+function showToast(text){const t=document.getElementById('toast');t.textContent=text;t.classList.add('visible');setTimeout(()=>t.classList.remove('visible'),1600)}
+document.addEventListener('click',e=>{const w=document.querySelector('.relation-wrapper');if(w&&!w.contains(e.target)){document.getElementById('relationsPopover').classList.remove('open');document.getElementById('relationBtn').classList.remove('active')}})
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){document.querySelectorAll('.modal-backdrop.open').forEach(m=>m.classList.remove('open'));document.body.classList.remove('modal-open')}})
+</script>
+</body>
+</html>
